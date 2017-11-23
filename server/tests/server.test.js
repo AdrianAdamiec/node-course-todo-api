@@ -10,8 +10,8 @@ beforeEach((done) => {
 
 describe('POST /todos', () => {
     it('should create a new todo', (done) => {
-        var text = 'test todo';
-        
+        let text = 'test todo';
+
         request(app)
             .post('/todos')
             .send({text})
@@ -33,7 +33,7 @@ describe('POST /todos', () => {
     });
 
     it('it should not create todo with invalid body data', (done) => {
-        
+
         request(app)
             .post('/todos')
             .send({})
