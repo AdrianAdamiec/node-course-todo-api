@@ -10,6 +10,6 @@ var options = {
     // If not connected, return errors immediately rather than waiting for reconnect
     bufferMaxEntries: 0
   };
-mongoose.connect('mongodb://localhost:27017/TodoApp', options);
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/TodoApp', options);
 
 module.exports.mongoose = mongoose;
