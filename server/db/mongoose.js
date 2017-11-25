@@ -1,9 +1,8 @@
 var mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
-var options = {
+let options = {
     useMongoClient: true,
-    autoIndex: false, // Don't build indexes
     reconnectTries: Number.MAX_VALUE, // Never stop trying to reconnect
     reconnectInterval: 500, // Reconnect every 500ms
     poolSize: 10, // Maintain up to 10 socket connections
