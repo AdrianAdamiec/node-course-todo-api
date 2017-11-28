@@ -79,14 +79,6 @@ UserSchema.statics.findByCredentials = function (email, password) {
     let User = this;
     let decoded;
 
-    // try {
-    //
-    //     decoded = jwt.verify(token, 'asd123');
-    //
-    // } catch (e) {
-    //
-    //     return Promise.reject();
-    // }
 
     return User.findOne({email}).then((user) => {
         if (!user) {
@@ -107,6 +99,15 @@ UserSchema.statics.findByCredentials = function (email, password) {
                 resolve(user);
             });
         });
+    });
+};
+
+UserSchema.methods.removeToken = function (token) {
+    let user = this;
+    return user.update({
+        $pull: {
+            tokens: {token}
+        }
     });
 };
 
